@@ -2,11 +2,11 @@ import { ProgressBar } from 'primereact/progressbar';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import React from 'react';
 
-type LoaderProps = {
-  line?: boolean;
-};
+// type LoaderProps = {
+//   line?: boolean;
+// };
 
-export default function Loader({ line }: LoaderProps) {
+export default function Loader({ line }) {
   return (
     <>
       {line ? (

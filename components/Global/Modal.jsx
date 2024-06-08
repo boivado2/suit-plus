@@ -1,20 +1,20 @@
 import React, { HTMLAttributes } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
-interface ButtonProps {
-  handleClick: () => void;
-}
+// interface ButtonProps {
+//   handleClick: () => void;
+// }
 
-interface ModalProps {
-  title?: string;
-  isOpen?: boolean;
-  closeButton?: boolean;
-  handleClose: () => void;
-  children: React.ReactNode;
-  className?: string
-}
+// interface ModalProps {
+//   title?: string;
+//   isOpen?: boolean;
+//   closeButton?: boolean;
+//   handleClose: () => void;
+//   children: React.ReactNode;
+//   className?: string
+// }
 
-function CloseButton({ handleClick }: ButtonProps) {
+function CloseButton({ handleClick }) {
   return (
     <button
       className='p-2 bg-gray-100 text-xl rounded-full text-secondary-text'
@@ -32,7 +32,7 @@ const Modal = ({
   closeButton = true,
   children,
   className
-}: ModalProps) => {
+}) => {
   if (!isOpen) return;
 
   return (

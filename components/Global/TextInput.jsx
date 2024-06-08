@@ -2,19 +2,19 @@
 
 import { ChangeEvent, useState } from 'react';
 
-type InputType = React.InputHTMLAttributes<HTMLInputElement> & {
-  id?: string;
-  error?: boolean | string;
-  hint?: string;
-  format?: boolean;
-  rightIcon?: React.ReactNode;
-  leftIcon?: React.ReactNode;
-  leftIconClick?: () => void;
-  rightIconClick?: () => void;
-  rounded?: boolean;
-};
+// type InputType = React.InputHTMLAttributes<HTMLInputElement> & {
+//   id?: string;
+//   error?: boolean | string;
+//   hint?: string;
+//   format?: boolean;
+//   rightIcon?: React.ReactNode;
+//   leftIcon?: React.ReactNode;
+//   leftIconClick?: () => void;
+//   rightIconClick?: () => void;
+//   rounded?: boolean;
+// };
 
-export default function TextInput(props: InputType) {
+export default function TextInput(props) {
   const {
     type = 'text',
     inputMode = 'text',

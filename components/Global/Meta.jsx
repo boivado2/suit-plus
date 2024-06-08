@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import React from 'react';
 
-interface IProps {
-  title?: string;
-  description?: string;
-}
+// interface IProps {
+//   title?: string;
+//   description?: string;
+// }
 
 const Meta = ({
   title = 'Freelancer Payout Finance',
   description = 'Freelancer Payout Finance',
-}: IProps) => {
+}) => {
   return (
     <Head>
       <title>{title}</title>

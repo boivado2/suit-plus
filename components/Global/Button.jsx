@@ -10,7 +10,7 @@ const colors = {
 };
 
 // Check if the type match the colors type
-function isValidColor(color: string): color is keyof typeof colors {
+function isValidColor(color){
   return Object.keys(colors).includes(color);
 }
 
@@ -20,20 +20,20 @@ const sizes = {
   large: 'px-12 py-5 text-lg',
 };
 
-interface ButtonType {
-  variant?: 'fill' | 'text' | 'outlined';
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  className?: string;
-  loading?: boolean;
-  disabled?: boolean;
-  block?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  color?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  bold?: boolean;
-  children: React.ReactNode;
-  rounded?: boolean;
-}
+// interface ButtonType {
+//   variant?: 'fill' | 'text' | 'outlined';
+//   type?: 'button' | 'submit' | 'reset' | undefined;
+//   className?: string;
+//   loading?: boolean;
+//   disabled?: boolean;
+//   block?: boolean;
+//   size?: 'small' | 'medium' | 'large';
+//   color?: string;
+//   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+//   bold?: boolean;
+//   children: React.ReactNode;
+//   rounded?: boolean;
+// }
 
 export default function Button({
   variant = 'fill',
@@ -48,7 +48,7 @@ export default function Button({
   bold = false,
   children,
   rounded = false,
-}: ButtonType) {
+}) {
   // Accessibility improvements
   const ariaDisabled = disabled ? 'true' : undefined;
 
