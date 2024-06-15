@@ -3,5 +3,44 @@
 }
 .loadmore{
     border: 3px solid blue;
-    background-color: red;
+    /* background-color: red; */
+}
+.footer-2{
+    display: none;
+}
+.footer{
+    background-color: rgb(1, 1, 41);
+}
+.mail{
+    background-color: rgb(1, 1, 41);
+
+}
+
+@media screen and (max-width: 576px){
+       .footer{
+          display: none;
+       }
+       .footer-2{
+          display: block;
+          background-color: rgb(1, 1, 41);
+          margin: 0;
+          padding: 10px;
+          color: white;
+          margin: 0px;
+          
+       }
+       .mail{
+          border-radius: none;
+       }
+       .footer-2 > p{
+         font-size: 20px;
+         margin: 15px 0px;
+       }
+       .footer-2 h3{
+        font-weight: bold;
+       }
+       .footer-2 span{
+         font-weight: lighter;
+       }
+      
 }
