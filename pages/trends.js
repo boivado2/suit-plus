@@ -1,91 +1,137 @@
-import React from 'react';
+import React from "react";
 import hero from "../components/assets/herosection.png";
-import Image from 'next/image';
-import {FaFilter,FaStar,FaCopyright} from "react-icons/fa";
-import Data from '@/components/Global/Data';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from '@/components/Global/footer';
+import Image from "next/image";
+import {FaFilter, FaStar, FaCopyright} from "react-icons/fa";
+import Data from "@/components/Global/Data";
+import Footer from "@/components/Global/footer";
+import {useState} from "react";
+import filter from "../components/assets/filter.png";
+import Layout from "@/components/Layout";
+import {DownOutlined, StarFilled} from "@ant-design/icons";
+import {Dropdown, Space,Typography} from "antd";
 
 function Trends() {
-  return (
-    <div className='container-fluid p-0 m-0'>
-          {/* <div> */}
-               <Image className='hero w-100 m-0 p-0' src={hero} width height={600} alt=""/>
-               <div>
-                    {/* <FaFilter/> */}
-               </div>
+	const [activeButton, setActiveButton] = useState(null);
+	const [filterCategory, setCategory] = useState(Data);
+	const filterResult = (val, buttonId) => {
+		const result = Data.filter((currentData) => {
+			return currentData.productName === val;
+		});
+		setCategory(result);
+		setActiveButton(buttonId);
+	};
 
-               <div className='trends row my-5 flex align-middle justify-center'>
-                    {Data.map((item) => {
-                         return(
-                           <div key={item.id} className='col-5 col-sm-3 m-2 p-0'>
-                               <Image src={item.image} alt='' className='w-100 m-0'/>
-                               <div className='description mt-2 lg:flex lg:align-middle lg:justify-between text-center'>
-                                    <div>
-                                        <h5 className='text-center'>{item.productName}</h5>
-                                        <p className='line-height'>{item.description}</p>
-                                    </div>
-                                    <div className='stars flex align-middle lg:justify-between justify-center m-0 p-0'>
-                                          <FaStar/>
-                                          <FaStar/>
-                                          <FaStar/>
-                                          <FaStar/>
-                                          <FaStar/>
-                                          <span className='m-0 p-0'>(65)</span>
-                                    </div>
-                               </div>
-                              
-                          </div>
-                         )
-                         
-                    })};
+	const items = [
+		{
+			label: (
+				<button
+					className={`py-2 px-2`}
+					onClick={() => filterResult("Boss", 1)}
+					value='price'
+				>
+					price
+				</button>
+			),
+			key: "0",
+		},
+		{
+			label: (
+				<button
+					className={`py-2 px-2`}
+					onClick={() => filterResult("Bosses", 2)}
+					value='brand'
+				>
+					Style
+				</button>
+			),
+			key: "1",
+		},
 
-               </div>
-          {/* </div> */}
-               <button className='loadmore d-flex mx-auto my-5 border border-blue-900 py-1 px-5'>Load More</button>
-               {/* <Footer/> */}
-               
-               <div className='footer bg-blue-950 p-20 mt-30'>
-               <div className='row flex align-middle justify-around'>
-				<div className='col-12 col-sm-3 text-white'>
-					<h3 className='mb-4'>SuitPlus</h3>
-					<p className='text-sm'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-						itaque repellat sit ullam cumque voluptate non rem, nulla magnam
-						tempora recusandae deleniti perferendis id corrupti dolore minus
-						quam qui consectetur.
-					</p>
+		{
+			label: (
+				<button
+					className={`py-2 px-2`}
+					onClick={() => filterResult("Bosses", 3)}
+					value='brand'
+				>
+					Brand
+				</button>
+			),
+			key: "2",
+		},
+	];
+
+	return (
+		<Layout>
+			<div className='container-fluid p-0 m-0 mt-5'>
+				{/* <div> */}
+				<Image
+					className='hero w-100 m-0 p-0'
+					src={hero}
+					width
+					height={600}
+					alt=''
+				/>
+				<div className='flex align-middle justify-between px-3 sm:px-14 py-12'>
+					<Image src={filter} alt='filter' className='' />
+					<Dropdown
+						menu={{
+							items,
+							selectable: true,
+							defaultSelectedKeys: ["3"],
+
+						}}
+						trigger={['click']}
+						className="border d-flex align-items-center justify-content-between px-2"
+
+					>
+						<Typography.Link>
+							<Space className="text-black">
+								{/* filter */}
+								<DownOutlined />
+							</Space>
+						</Typography.Link>
+					</Dropdown>
 				</div>
-				<div className='col-6 col-sm-2 pl-4'>
-					<p className='text-lg text-white'>Company</p>
-                         <a href='#'className='no-underline text-sm text-center text-white'>About</a><br/>
-                         <a href='#'className='no-underline text-sm text-center text-white'>Our Look Book</a><br/>
-                         <a href='#'className='no-underline text-sm text-center text-white'>Customer Reviews</a><br/>
+
+				<div className='trends row my-5 flex align-middle justify-center'>
+					{filterCategory.map((item) => {
+						return (
+							<div key={item.id} className='col-5 col-sm-3 m-2 p-0'>
+								<Image src={item.image} alt='' className='w-100 m-0' />
+								<div className='description mt-2 lg:flex lg:align-middle lg:justify-between text-center'>
+									<div>
+										<h5 className='text-center'>{item.productName}</h5>
+										<p className='line-height'>{item.description}</p>
+									</div>
+									<div className='stars flex align-middle lg:justify-between justify-center m-0 p-0'>
+										<StarFilled />
+										<StarFilled />
+										<StarFilled />
+										<StarFilled />
+										<StarFilled />
+										{/* <FaStar />
+										<FaStar />
+										<FaStar />
+										<FaStar /> */}
+										<span className='m-0 p-0'>(65)</span>
+									</div>
+								</div>
+							</div>
+						);
+					})}
+					
 				</div>
-				<div className='col-6 col-sm-2'>
-                         <p className='text-lg text-white'>Trends</p>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Suits</a><br/>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Tuxedos</a><br/>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Pants</a><br/>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Brands</a><br/>
-				</div>
-				<div className='col-6 col-sm-2'>
-                         <p className='text-lg text-white'>Support</p>
-                         <a href='#' className='no-underline text-sm text-center text-white'>FAQ</a><br/>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Contact Us</a><br/>
-                         <a href='#' className='no-underline text-sm text-center text-white'>Perfect Fit Guarantee</a><br/>
-				</div>
-				<div className='col-6 col-sm-3'>
-                         <p className='text-lg text-white'>Join Mailing List</p>
-                         <p className='text-sm text-white'>Sign up for updates and promotions</p>
-                         <input placeholder='Email' className='bg-blue-950 border border-white text-white px-2 py-1 w-sm-75 outline-none'/>
-				</div>
-                    
-		 	  </div>
-                 <span className='text-white mt-10 flex'>Copyright <FaCopyright className='mt-1 mx-2'/>2024,SuitPlus.</span>
-               </div>
-    </div>
-  )
+				{/* </div> */}
+				<button className='loadmore d-flex mx-auto my-5 border border-blue-900 py-1 px-5'>
+					Load More
+				</button>
+				{/* <Footer/> */}
+
+				<Footer className='m-0' />
+			</div>
+		</Layout>
+	);
 }
 
-export default Trends
+export default Trends;

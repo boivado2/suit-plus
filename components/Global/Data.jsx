@@ -4,7 +4,7 @@ import img2 from "../assets/Image_2.png"
 import img3 from "../assets/Image_3.png"
 import img4 from "../assets/Image_4.png"
 import img5 from "../assets/Image_5.png"
-import img6 from "../assets/Image_6.png"
+import img11 from "../assets/Image_7.png"
 import img7 from "../assets/Image_7.png"
 import img8 from "../assets/Image_8.png"
 import img9 from "../assets/Image_9.png"
@@ -24,7 +24,7 @@ const Data = [
       },
       {
          id: 3,
-         productName: "Boss",
+         productName: "Bosses",
          description: "Hugo Wool Tuxedo",
          image: img3
       },
@@ -44,26 +44,26 @@ const Data = [
          id: 6,
          productName: "Boss",
          description: "Hugo Wool Tuxedo",
-         image: img6
+         image: img11
       },
-      {
-         id: 7,
-         productName: "Boss",
-         description: "Hugo Wool Tuxedo",
-         image: img7
-      },
-      {
-         id: 8,
-         productName: "Boss",
-         description: "Hugo Wool Tuxedo",
-         image: img8
-      },
-      {
-         id: 9,
-         productName: "Boss",
-         description: "Hugo Wool Tuxedo",
-         image: img9
-      },
+      // {
+      //    id: 7,
+      //    productName: "Bos",
+      //    description: "Hugo Wool Tuxedo",
+      //    image: img7
+      // },
+      // {
+      //    id: 8,
+      //    productName: "Boss",
+      //    description: "Hugo Wool Tuxedo",
+      //    image: img8
+      // },
+      // {
+      //    id: 9,
+      //    productName: "Boss",
+      //    description: "Hugo Wool Tuxedo",
+      //    image: img9
+      // },
 ]
 
 export default Data;
