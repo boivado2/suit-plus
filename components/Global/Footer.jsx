@@ -1,12 +1,14 @@
 import React from "react";
 import {FaFilter, FaStar, FaCopyright} from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {DownOutlined} from "@ant-design/icons";
+
 
 function Footer() {
 	return (
-		<div className='container-fluid h-100'>
+		<div className='container-fluid h-100 p-0'>
 			<div className='footer p-20 mt-30'>
-				<div className='row flex align-middle justify-around'>
+				<div className='row flex align-middle justify-around p-0'>
 					<div className='col-12 col-sm-3 text-white'>
 						<h3 className='mb-4'>SuitPlus</h3>
 						<p className='text-sm'>
@@ -72,7 +74,7 @@ function Footer() {
 						</p>
 						<input
 							placeholder='Email'
-							className='bg-blue-950 w-25 border border-white text-white px-2 py-1 outline-none'
+							className='bg-blue-950 border border-white text-white px-2 py-1 outline-none'
 						/>
 					</div>
 				</div>
@@ -82,7 +84,7 @@ function Footer() {
 				</span>
 			</div>
 
-			<div className='footer-2'>
+			<div className='footer-2 p-2 m-0'>
 				<div className='bg-none mb-16 mt-10'>
 					<p className='text-lg text-white'>Join Mailing List</p>
 					<p className='text-sm text-white'>
@@ -90,17 +92,27 @@ function Footer() {
 					</p>
 					<input
 						placeholder='Email'
-						className='mail border border-white text-white px-2 py-1 outline-none'
+						className='mail_2 border border-white text-white px-2 py-1 outline-none'
 					/>
 				</div>
 				<hr></hr>
-				<p>Company</p>
+				<div className="d-flex align-items-center pt-1 pb-0 justify-content-between">
+					<p>Company</p>
+					<DownOutlined/>
+				</div>
 				<hr></hr>
-				<p>Trends</p>
 				<hr></hr>
-				<p>Support</p>
+				<div className="d-flex align-items-center pt-1 pb-0 justify-content-between">
+					<p>Trends</p>
+					<DownOutlined/>
+				</div>
 				<hr></hr>
-
+				<hr></hr>
+				<div className="d-flex align-items-center pt-1 pb-0 justify-content-between">
+					<p>Support</p>
+					<DownOutlined/>
+				</div>
+				<hr></hr>
 				<div className='text-white mt-14'>
 					<h3 className='mb-4'>SuitPlus</h3>
 					<p className='text-sm'>
